@@ -1,0 +1,14 @@
+// Java 연습용 모듈 (로봇 앱과는 상관없음)
+// 실행: 상단 Run 버튼(로봇용)이 아니라, 코드 왼쪽 줄번호 옆 초록색 ▶ 버튼을 누르세요.
+apply plugin: 'java'
+
+// 한글 주석이 Windows에서 깨지지 않도록 UTF-8로 컴파일
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+// 한글 출력이 Run 창에서 깨지지 않도록 UTF-8로 출력
+tasks.withType(JavaExec).configureEach {
+    jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8',
+            '-Dsun.stdout.encoding=UTF-8', '-Dsun.stderr.encoding=UTF-8'
+}
